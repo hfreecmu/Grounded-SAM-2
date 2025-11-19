@@ -6,13 +6,15 @@ import numpy as np
 import torch
 from PIL import Image, ImageDraw, ImageFont
 
+import sys
+sys.path.append('/home/hfreeman/harry_ws/repos/pruner_track/submodules/Grounded-SAM-2')
+
 import groundingdino.datasets.transforms as T
 from groundingdino.models import build_model
 from groundingdino.util import box_ops
 from groundingdino.util.slconfig import SLConfig
 from groundingdino.util.utils import clean_state_dict, get_phrases_from_posmap
 from groundingdino.util.vl_utils import create_positive_map_from_span
-
 
 def plot_boxes_to_image(image_pil, tgt):
     H, W = tgt["size"]
